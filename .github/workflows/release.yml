@@ -8,6 +8,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -24,6 +26,9 @@ jobs:
     - name: Release Packages
       uses: softprops/action-gh-release@v2
       with:
-        files: _build/print_project-*
+        files: |
+          _build/*.tar.gz
+          _build/*.deb
+          _build/*.rpm
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
