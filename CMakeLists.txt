@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.10)
+project(print_project LANGUAGES CXX)
+set(PRINT_VERSION_MAJOR 0)
+set(PRINT_VERSION_MINOR 1)
+set(PRINT_VERSION_PATCH 0)
+set(PRINT_VERSION_TWEAK 0)
+set(PRINT_VERSION
+  ${PRINT_VERSION_MAJOR}.${PRINT_VERSION_MINOR}.${PRINT_VERSION_PATCH}.${PRINT_VERSION_TWEAK})
+set(PRINT_VERSION_STRING "v${PRINT_VERSION}")
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_subdirectory(formatter_lib)
+add_subdirectory(print_lib)
+add_subdirectory(solver_application)
+
+include(CPackConfig.cmake)

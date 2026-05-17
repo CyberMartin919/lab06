@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.10)
+project(print)
+add_library(print STATIC print.cpp print.h)
+target_include_directories(print PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(print PUBLIC formatter)
